@@ -1,0 +1,59 @@
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div ng-controller="ContactsController">
+      <h1>Contact List</h1>
+      <br>
+
+<div class="alert alert-success alert-dismissable" ng-show="message">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="hide_message()">&times;</a>
+  {{message}}
+</div>
+      <table class="table table-hover">
+        <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input class="form-control" placeholder="Name" ng-model="contact.name" />
+            </td>
+            <td>
+              <input class="form-control" placeholder="Email" ng-model="contact.email" />
+            </td>
+            <td>
+              <input class="form-control" placeholder="Phone number" ng-model="contact.number" />
+            </td>
+            <td>
+              <div class="btn-group">
+              <button class="btn btn-primary" ng-click="add_contact()">Add</button>
+              <button class="btn btn-success" ng-click="update_contact()">Update</button>
+                </div>
+            </td>
+          </tr>
+          <tr ng-repeat="contact in contact_list">
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.number}}</td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-warning" ng-click="edit_contact(contact)">Edit</button>
+                <button class="btn btn-danger" ng-click="delete_contact(contact._id)">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </body>
+  <script src="controllers/ContactsController.js"></script>
+</html>
