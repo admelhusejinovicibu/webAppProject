@@ -1,13 +1,412 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="refresh" content="0;url=pages/index.html">
-<title>Loan Score Card Model</title>
-<script language="javascript">
-    window.location.href = "pages/index.html"
-</script>
-</head>
-<body>
-Go to <a href="pages/index.html">/pages/index.html</a>
-</body>
+<html lang="en" ng-app>
+
+  <head>
+    <! --link for stars ranking -->
+    <link href="css/stars.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>www.bankscore.me</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Bank Score Card</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Log in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Log in</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form name="frmv">
+              <input type="email" name="email" placeholder="E-mail" ng-model="user.email" required/>
+              <span ng-show=" frmv.email.$dirty &&  frmv.email.$error.required">*  Required</span>
+              <span ng-show=" frmv.email.$dirty &&  frmv.email.$error.email">Not an  E-mail</span>
+              </br>
+            </br>
+              <input type="password" name="password" placeholder="password" ng-model="user.password" required/>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Log in</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+          <!-- Title -->
+          <h1 class="mt-4">How do you rank your Bank?</h1>
+
+          <!-- Author -->
+          <p class="lead">
+            by
+            <a href="#">Admel Husejinović</a>
+          </p>
+
+          <hr>
+
+          <!-- Date/Time -->
+          <p>Posted on January 1, 2017 at 12:00 PM</p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" src="http://stav.ba/wp-content/uploads/2017/03/VH-ZiraatBank-38-Copy.jpg" alt="">
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">Bosnia and Herzegovina : Financial Sector Assessment Program-Banking Sector Stress Testing—Technical Note</p>
+
+          <p>This Technical Note discusses results of Banking Sector Stress Testing for Bosnia and Herzegovina (BiH). The stress tests focused on the banking system and covered all 27 banks operating in BiH. System-wide solvency and liquidity indicators appear broadly appropriate, but significant pockets of vulnerability remain. On the basis of the supervisory data used, stress tests suggest that aggregate stress losses, mainly related to increased provisions in the loan book, although non-negligible, remain broadly manageable. Similarly, system-wide liquidity ratios appear broadly adequate. Nevertheless, there are several banks within the system—mainly small domestically owned banks—with a wide range of significant vulnerabilities. These include, low liquidity ratios, large concentration risks, and round-trip cross-border exposures.</p>
+
+          <p>Bosnia and Herzegovina : Financial Sector Assessment Program-Banking Sector Stress Testing—Technical Note</p>
+
+          <blockquote class="blockquote">
+            <p class="mb-0">International Monetary Fund. Monetary and Capital Markets Department</p>
+            <footer class="blockquote-footer">Country Report No. 15/213
+              <cite title="Source Title">Source Title</cite>
+            </footer>
+          </blockquote>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+
+          <hr>
+
+          <!-- Comments Form -->
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Single Comment -->
+          <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+          <!-- Comment with nested comments -->
+          <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+              <div class="media mt-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0">Commenter Name</h5>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+              </div>
+
+              <div class="media mt-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0">Commenter Name</h5>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <hr>
+          <!-- contact list -->
+          <div ng-controller="ContactsController">
+            <h2>Bank List</h2>
+            <br>
+
+      <div class="alert alert-success alert-dismissable" ng-show="message">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="hide_message()">&times;</a>
+        {{message}}
+      </div>
+            <table class="table table-hover">
+              <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input class="form-control" placeholder="Name" ng-model="contact.name"/>
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="Address" ng-model="contact.email" />
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="Phone number" ng-model="contact.number" />
+                  </td>
+                  <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary" ng-click="add_contact()">Add</button>
+                        <button class="btn btn-success" ng-click="update_contact()">Update</button>
+                      </div>
+                  </td>
+                </tr>
+                <tr ng-repeat="contact in contact_list">
+                  <td>{{contact.name}}</td>
+                  <td>{{contact.email}}</td>
+                  <td>{{contact.number}}</td>
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-warning" ng-click="edit_contact(contact)">Edit</button>
+                      <button class="btn btn-danger" ng-click="delete_contact(contact._id)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr>
+          <!-- user list -->
+          <div ng-controller="UsersController">
+            <h2>User List</h2>
+            <br>
+
+      <div class="alert alert-success alert-dismissable" ng-show="message">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="hide_message()">&times;</a>
+        {{message}}
+      </div>
+            <table class="table table-hover">
+              <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Admin</th>
+                    <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input class="form-control" placeholder="Name" ng-model="contact.name" />
+                  </td>
+                  <td>
+                    <input type="password" class="form-control" placeholder="Password" ng-model="contact.email" />
+                  </td>
+                  <td>
+                    <input type="checkbox" class="form-control" placeholder="Phone number" ng-model="contact.number"/>
+                  </td>
+                  <td>
+                    <div class="btn-group">
+                    <button class="btn btn-primary" ng-click="add_contact()">Add</button>
+                    <button class="btn btn-success" ng-click="update_contact()">Update</button>
+                      </div>
+                  </td>
+                </tr>
+                <tr ng-repeat="contact in contact_list">
+                  <td>{{contact.name}}</td>
+                  <td>{{contact.email}}</td>
+                  <td>{{contact.number}}</td>
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-warning" ng-click="edit_contact(contact)">Edit</button>
+                      <button class="btn btn-danger" ng-click="delete_contact(contact._id)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Amazing links</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a target="_blank" href="http://www.ziraatbosnia.com/akcije/Bahceci-ba">Akcija kredita</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="http://www.ziraatbosnia.com/akcije/Bahceci-ba">Najniže stope</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="http://www.ziraatbosnia.com/akcije/Bahceci-ba">Akcija depoziti</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a target="_blank" href="http://www.ziraatbosnia.com/akcije/Bahceci-ba">Ripple Payment</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="http://www.ziraatbosnia.com/akcije/Bahceci-ba">WU</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="http://www.ziraatbosnia.com/akcije/Bahceci-ba">SWIFT payments</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scoring ML Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Machine Learning Credit Risk</h5>
+            <div class="card-body">
+              <img class="img-fluid rounded" src="http://dndcredit.com/wp-content/uploads/2016/10/credit-score.jpg">
+              <a target="_blank" href="https://creditriskpredictbyadmel.azurewebsites.net/">Credit Card Risk Prediction</a>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Rank the banks</h5>
+            <div class="card-body">
+              <!-- contact list -->
+              <div ng-controller="ContactsController">
+
+          <div class="alert alert-success alert-dismissable" ng-show="message">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="hide_message()">&times;</a>
+            {{message}}
+          </div>
+                <table class="table table-hover">
+                  <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr >
+
+                      <td>
+                          <select class="form-control" id="sel1">
+                            <option>Select the Bank</option>
+                          <option ng-repeat="contact in contact_list">{{contact.name}}</option>
+                        </select>
+                      </td>
+                    </tr>
+                      <td>
+                              <div class="stars">
+                                <form action="">
+                                  <input class="star star-5" id="star-5" type="radio" name="star"/>
+                                  <label class="star star-5" for="star-5"></label>
+                                  <input class="star star-4" id="star-4" type="radio" name="star"/>
+                                  <label class="star star-4" for="star-4"></label>
+                                  <input class="star star-3" id="star-3" type="radio" name="star"/>
+                                  <label class="star star-3" for="star-3"></label>
+                                  <input class="star star-2" id="star-2" type="radio" name="star"/>
+                                  <label class="star star-2" for="star-2"></label>
+                                  <input class="star star-1" id="star-1" type="radio" name="star"/>
+                                  <label class="star star-1" for="star-1"></label>
+                                </form>
+                              </div>
+
+                      </td>
+
+                      <td>
+                        <button class="btn" ng-click="add_contact()">Rate</button>
+                      </td>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+  <script src="controllers/ContactsController.js"></script>
+  <script src="controllers/UsersController.js"></script>
 </html>

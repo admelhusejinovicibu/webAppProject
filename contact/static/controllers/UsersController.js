@@ -1,18 +1,10 @@
-function ContactsController($scope, $http){
+function UsersController($scope, $http){
   refresh_contacts();
 
   $scope.message=null;
 
   $scope.add_contact = function(){
-    $http.post('/contact', $scope.contact).success(function(data){
-      //refresh_contacts();
-      $scope.contact = null;
-      $scope.contact_list.push(data);
-      $scope.message="Contact added";
-    });
-  }
-  $scope.add_contact = function(){
-    $http.post('/rate', $scope.contact).success(function(data){
+    $http.post('/user', $scope.contact).success(function(data){
       //refresh_contacts();
       $scope.contact = null;
       $scope.contact_list.push(data);
@@ -22,7 +14,7 @@ function ContactsController($scope, $http){
 
   $scope.delete_contact = function(contact_id){
     console.log("delete contact with id "+ contact_id);
-    $http.delete('/contact/'+contact_id).success(function(data){
+    $http.delete('/user/'+contact_id).success(function(data){
       refresh_contacts();
       $scope.message="Contact deleted";
     });
@@ -40,7 +32,7 @@ function ContactsController($scope, $http){
     $scope.message=null;
   }
   $scope.update_contact = function(){
-    $http.put('/contact/'+$scope.contact._id, $scope.contact).success(function(data){
+    $http.put('/user/'+$scope.contact._id, $scope.contact).success(function(data){
       refresh_contacts();
       $scope.contact = null;
       $scope.message="Contact updated";
@@ -48,7 +40,7 @@ function ContactsController($scope, $http){
   }
 
   function refresh_contacts(){
-    $http.get('/contacts').success(function(data){
+    $http.get('/users').success(function(data){
       $scope.contact_list = data;
     });
   }
