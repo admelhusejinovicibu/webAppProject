@@ -102,10 +102,10 @@
           </p>
 
           <hr>
-
+          <div ng-controller="CommentsController">
           <!-- Date/Time -->
-          <p>Posted on January 1, 2017 at 12:00 PM</p>
-
+          <p>Posted on {{date | date:'yyyy-MM-dd'}}</p>
+        </div>
           <hr>
 
           <!-- Preview Image -->
@@ -137,23 +137,39 @@
           <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
+              <div ng-controller="CommentsController">
               <form>
                 <div class="form-group">
-                  <textarea class="form-control" rows="3"></textarea>
+                  <input class="form-control" placeholder="Commentor Name" ng-model="contact.name"/>
+                  <textarea class="form-control" placeholder="Enter a comment" rows="3" ng-model="contact.number"></textarea>
+                  <div>
+                    <input hidden ng-model="contact.date"/>
+                  </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" ng-click="add_contact(); refresh_contacts()">Submit</button>
               </form>
+            </div>
             </div>
           </div>
 
           <!-- Single Comment -->
+        <div ng-controller="CommentsController">
+          <div ng-repeat="contact in contact_list">
           <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <img class="img-fluid" src="img/Comment-icon.png" alt="Commnet image" width="50" height="50">
+
             <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              <h5 class="mt-0">{{contact.name}}
+                <h6 class="mt-0">at {{contact.date | date:'dd-MM-yyyy HH:mm'}}
+                </h6>
+              </h5>
+
+              {{contact.number}}
+
             </div>
           </div>
+        </div>
+      </div>
 
           <!-- Comment with nested comments -->
           <div class="media mb-4">
@@ -212,7 +228,7 @@
                   </td>
                   <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary" ng-click="add_contact()">Add</button>
+                        <button class="btn btn-primary" ng-click="add_bank_contact()">Add</button>
                         <button class="btn btn-success" ng-click="update_contact()">Update</button>
                       </div>
                   </td>
@@ -326,8 +342,9 @@
           <div class="card my-4">
             <h5 class="card-header">Machine Learning Credit Risk</h5>
             <div class="card-body">
-              <img class="img-fluid rounded" src="http://dndcredit.com/wp-content/uploads/2016/10/credit-score.jpg">
-              <a target="_blank" href="https://creditriskpredictbyadmel.azurewebsites.net/">Credit Card Risk Prediction</a>
+              <button type="button" class="btn btn-light" onclick="window.location.href='https://creditriskpredictbyadmel.azurewebsites.net'">
+              <img class="img-fluid rounded" src="img/credit-score.jpg" alt="Machine Learning Model"/>
+            </button>
             </div>
           </div>
 
@@ -353,24 +370,24 @@
                     <tr >
 
                       <td>
-                          <select class="form-control" id="sel1">
-                            <option>Select the Bank</option>
-                          <option ng-repeat="contact in contact_list">{{contact.name}}</option>
+                          <select class="form-control" id="sel1" ng-model="contact.name">                            
+                          <option ng-repeat="contact in contact_list" >{{contact.name}}</option>
                         </select>
                       </td>
+
                     </tr>
                       <td>
-                              <div class="stars">
-                                <form action="">
-                                  <input class="star star-5" id="star-5" type="radio" name="star"/>
+                              <div class="stars" >
+                                <form action="" >
+                                  <input class="star star-5" ng-model="contact.number" id="star-5" type="radio" name="star" value=5 />
                                   <label class="star star-5" for="star-5"></label>
-                                  <input class="star star-4" id="star-4" type="radio" name="star"/>
+                                  <input class="star star-4" ng-model="contact.number" id="star-4" type="radio" name="star" value=4 />
                                   <label class="star star-4" for="star-4"></label>
-                                  <input class="star star-3" id="star-3" type="radio" name="star"/>
+                                  <input class="star star-3" ng-model="contact.number" id="star-3" type="radio" name="star" value=3 />
                                   <label class="star star-3" for="star-3"></label>
-                                  <input class="star star-2" id="star-2" type="radio" name="star"/>
+                                  <input class="star star-2" ng-model="contact.number" id="star-2" type="radio" name="star" value=2 />
                                   <label class="star star-2" for="star-2"></label>
-                                  <input class="star star-1" id="star-1" type="radio" name="star"/>
+                                  <input class="star star-1" ng-model="contact.number" id="star-1" type="radio" name="star" value=1 />
                                   <label class="star star-1" for="star-1"></label>
                                 </form>
                               </div>
@@ -380,6 +397,26 @@
                       <td>
                         <button class="btn" ng-click="add_contact()">Rate</button>
                       </td>
+                  </tbody>
+                </table>
+              </div>
+              <!-- ranking list -->
+              <div ng-controller="RatingsController">
+                <h3>Rank List</h3>
+                <br>
+
+                <table class="table table-hover">
+                  <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Avg. Points</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="contact in contact_list">
+                      <td>{{contact.name}}</td>
+                      <td>{{contact.number}}</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -409,4 +446,7 @@
   </body>
   <script src="controllers/ContactsController.js"></script>
   <script src="controllers/UsersController.js"></script>
+  <script src="controllers/RatingsController.js"></script>
+  <script src="controllers/CommentsController.js"></script>
+
 </html>

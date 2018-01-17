@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var mongo = require('mongojs');
-var db = mongo('localhost:27017/contacts-app', ['numbers','users','rate']);
+//var db = mongo('localhost:27017/contacts-app', ['numbers','users','ratings','comments']);
+var db = mongo('mongodb://admel:asja13082011.@ds159707.mlab.com:59707/webappproject', ['numbers','users','ratings','comments']);
 var body_parser = require('body-parser');
 
 app.use(body_parser.json());
@@ -14,6 +15,16 @@ app.get('/contacts', function(req, res){
 });
 app.get('/users', function(req, res){
   db.users.find(function(err, docs){
+   res.json(docs);
+ });
+});
+app.get('/ratings', function(req, res){
+  db.ratings.find(function(err, docs){
+   res.json(docs);
+ });
+});
+app.get('/comments', function(req, res){
+  db.comments.find(function(err, docs){
    res.json(docs);
  });
 });
@@ -32,7 +43,14 @@ app.post('/user', function(req, res){
 });
 app.post('/rate', function(req, res){
    req.body._id = null;
-   db.rate.insert(req.body, function(err, doc){
+   db.ratings.insert(req.body, function(err, doc){
+    res.json(doc);
+   });
+});
+app.post('/comment', function(req, res){
+   req.body._id = null;
+   req.body.date = Date.now();
+   db.comments.insert(req.body, function(err, doc){
     res.json(doc);
    });
 });
