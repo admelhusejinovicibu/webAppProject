@@ -19,7 +19,10 @@ app.get('/users', function(req, res){
  });
 });
 app.get('/ratings', function(req, res){
-  db.ratings.find(function(err, docs){
+  var mysort = { name: -1 };
+  //var query = {};
+db.ratings.aggregate([{$group: {_id:"$name",  number: {$avg:"$number"} } }].sort(mysort),function(err, docs){
+  //db.ratings.find(query).sort(mysort).toArray(function(err, docs){
    res.json(docs);
  });
 });

@@ -98,7 +98,7 @@
           <!-- Author -->
           <p class="lead">
             by
-            <a href="#">Admel Husejinović</a>
+            <a href="#">admin</a>
           </p>
 
           <hr>
@@ -114,22 +114,22 @@
           <hr>
 
           <!-- Post Content -->
-          <p class="lead">Bosnia and Herzegovina : Financial Sector Assessment Program-Banking Sector Stress Testing—Technical Note</p>
+          <p class="lead">Sve mi je pod hipotekom, i vazduh što dišem pripada banci</p>
 
-          <p>This Technical Note discusses results of Banking Sector Stress Testing for Bosnia and Herzegovina (BiH). The stress tests focused on the banking system and covered all 27 banks operating in BiH. System-wide solvency and liquidity indicators appear broadly appropriate, but significant pockets of vulnerability remain. On the basis of the supervisory data used, stress tests suggest that aggregate stress losses, mainly related to increased provisions in the loan book, although non-negligible, remain broadly manageable. Similarly, system-wide liquidity ratios appear broadly adequate. Nevertheless, there are several banks within the system—mainly small domestically owned banks—with a wide range of significant vulnerabilities. These include, low liquidity ratios, large concentration risks, and round-trip cross-border exposures.</p>
+          <p>Dvadesetak korisnika kredita u švicarskim francima okupilo se ispred poslovnice Addiko, nekadašnje Hypo branke, u ulici Ferhadija u Sarajevu, kako bi izrazili negodovanje zbog problema u kojima se nalaze. Dočekala su ih zatvorena vrata banke. Okupljeni poručuju da će se vratiti i neće odustati od pravde koju zaslužuju.</p>
 
-          <p>Bosnia and Herzegovina : Financial Sector Assessment Program-Banking Sector Stress Testing—Technical Note</p>
+          <p>Prije deset godina, Nebojša Sredojević podigao je kredit od 74.000 švicarskih franaka, što je tada bilo približno 100.000 KM. Danas, nakon decenije otplate, Nebojša je dužan još 119.000 KM. Zajedno sa onima koji dijele sličnu sudbinu, o svom problemu došao je govoriti u poslovnici Addiko banke, nasljednici Hypo banke u kojoj je kredit i podigao.</p>
 
           <blockquote class="blockquote">
-            <p class="mb-0">International Monetary Fund. Monetary and Capital Markets Department</p>
-            <footer class="blockquote-footer">Country Report No. 15/213
-              <cite title="Source Title">Source Title</cite>
+            <p class="mb-0">"Sve mi je pod hipotekom, i vazduh što dišem pripada banci"</p>
+            <footer class="blockquote-footer">http://ba.n1info.com/a175877/Vijesti/Vijesti/Korisnici-kredita-u-frankama-pred-bankom.html
+              <cite title="Source Title">Vijesti</cite>
             </footer>
           </blockquote>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+          <p>"Stan sam morao prodati da bih njima izašao u susret, da deblokiram svog žiranta i da mi kuću ne blokira. Jer su mi pod hipotekom i kuća i žirant i sve je pod hipotekom. Znači, i vazduh što dišem je Hypo banke. Da sam od ovih kriminalaca, kamatara, uzeo kredit, do sad bih ga otplatio. A ne od legalne države u kojoj u skupštini ne smiju da dignu ruke da usvoje zakon o konverziji iz CHF-a u KM", kaže Sredojević.</p>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+          <p>Okupljene građane dočekala su zaključana vrata i obavještenje na kojem piše da sve poslovnice Addiko banke u Sarajevu danas neće raditi. Kako se to u obavještenju navodi - zbog najavljenih blokada rada. Okupljeni poručuju da banka nema razloga da se plaši svojih klijenata.</p>
 
           <hr>
 
@@ -172,7 +172,7 @@
       </div>
 
           <!-- Comment with nested comments -->
-          <div class="media mb-4">
+          <div class="media mb-4" hidden>
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
             <div class="media-body">
               <h5 class="mt-0">Commenter Name</h5>
@@ -370,7 +370,7 @@
                     <tr >
 
                       <td>
-                          <select class="form-control" id="sel1" ng-model="contact.name">                            
+                          <select class="form-control" id="sel1" ng-model="contact.name">
                           <option ng-repeat="contact in contact_list" >{{contact.name}}</option>
                         </select>
                       </td>
@@ -379,15 +379,15 @@
                       <td>
                               <div class="stars" >
                                 <form action="" >
-                                  <input class="star star-5" ng-model="contact.number" id="star-5" type="radio" name="star" value=5 />
+                                  <input class="star star-5" ng-model="contact.number"  id="star-5" type="radio" name="star" ng-value=5 />
                                   <label class="star star-5" for="star-5"></label>
-                                  <input class="star star-4" ng-model="contact.number" id="star-4" type="radio" name="star" value=4 />
+                                  <input class="star star-4" ng-model="contact.number" id="star-4" type="radio" name="star" ng-value=4 />
                                   <label class="star star-4" for="star-4"></label>
-                                  <input class="star star-3" ng-model="contact.number" id="star-3" type="radio" name="star" value=3 />
+                                  <input class="star star-3" ng-model="contact.number" id="star-3" type="radio" name="star" ng-value=3 />
                                   <label class="star star-3" for="star-3"></label>
-                                  <input class="star star-2" ng-model="contact.number" id="star-2" type="radio" name="star" value=2 />
+                                  <input class="star star-2" ng-model="contact.number" id="star-2" type="radio" name="star" ng-value=2 />
                                   <label class="star star-2" for="star-2"></label>
-                                  <input class="star star-1" ng-model="contact.number" id="star-1" type="radio" name="star" value=1 />
+                                  <input class="star star-1" ng-model="contact.number" id="star-1" type="radio" name="star" ng-value=1 />
                                   <label class="star star-1" for="star-1"></label>
                                 </form>
                               </div>
@@ -414,8 +414,8 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="contact in contact_list">
-                      <td>{{contact.name}}</td>
-                      <td>{{contact.number}}</td>
+                      <td>{{contact._id}}</td>
+                      <td>{{contact.number | number : 2}}</td>
                     </tr>
                   </tbody>
                 </table>

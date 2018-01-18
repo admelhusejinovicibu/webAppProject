@@ -9,6 +9,7 @@ function ContactsController($scope, $http){
       $scope.contact = null;
       $scope.contact_list.push(data);
       $scope.message="Contact added";
+
     });
   }
   $scope.add_contact = function(){
@@ -16,7 +17,7 @@ function ContactsController($scope, $http){
       //refresh_contacts();
       $scope.contact = null;
       $scope.contact_list.push(data);
-      $scope.message="Contact added";
+      $scope.message="Rating added";
     });
   }
 
