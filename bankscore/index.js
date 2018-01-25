@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var jwt = require('jsonwebtoken');
 var mongo = require('mongojs');
 //var db = mongo('localhost:27017/contacts-app', ['numbers','users','ratings','comments']);
 var db = mongo('mongodb://admel:asja13082011.@ds159707.mlab.com:59707/webappproject', ['numbers','users','ratings','comments']);
@@ -19,7 +20,7 @@ app.get('/users', function(req, res){
  });
 });
 app.get('/ratings', function(req, res){
-  var mysort = { name: -1 };
+  var mysort = { name: 1 };
   //var query = {};
 db.ratings.aggregate([{$group: {_id:"$name",  number: {$avg:"$number"} } }].sort(mysort),function(err, docs){
   //db.ratings.find(query).sort(mysort).toArray(function(err, docs){
@@ -31,6 +32,41 @@ app.get('/comments', function(req, res){
    res.json(docs);
  });
 });
+
+//jsonwebtoken post
+app.post('/api/login', function(req,res){
+  // insert code here to actually authenticate, or fake it
+  const user = {id:3};
+  // then return a token, secret key should be an env variable
+  const token = jwt.sign({user: user.id}, 'my_secret_key');
+  res.json({
+    message: 'Authenticated! Use this token in the "Authorization" header',
+    token:token
+  });
+});
+app.get('/api/protected', ensureToken,function (req, res) {
+  jwt.verify(req.token, 'my_secret_key', function(err, data) {
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      res.json({
+        description: 'Protected information. Congrats!'
+      });
+    }
+  });
+});
+
+function ensureToken(req, res, next) {
+  const bearerHeader = req.headers["authorization"];
+  if (typeof bearerHeader !== 'undefined') {
+    const bearer = bearerHeader.split(" ");
+    const bearerToken = bearer[1];
+    req.token = bearerToken;
+    next();
+  } else {
+    res.sendStatus(403)
+  };
+}
 
 app.post('/contact', function(req, res){
    req.body._id = null;

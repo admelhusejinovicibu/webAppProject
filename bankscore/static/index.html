@@ -60,7 +60,7 @@
           <!-- Modal Header -->
           <div class="modal-header">
             <h4 class="modal-title">Log in</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" data-dismiss="modal" >&times;</button>
           </div>
 
           <!-- Modal body -->
@@ -147,15 +147,15 @@ However, many of our staff are ex-credit officers who have worked for a major le
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
               <div ng-controller="CommentsController">
-              <form>
+              <form name="CommentForm">
                 <div class="form-group">
-                  <input class="form-control" placeholder="Commentor Name" ng-model="contact.name"/>
-                  <textarea class="form-control" placeholder="Enter a comment" rows="3" ng-model="contact.number"></textarea>
+                  <input type="text" class="form-control" placeholder="Commentor Name" ng-model="contact.name" required/>
+                  <textarea class="form-control" placeholder="Enter a comment" rows="3" ng-model="contact.number" required></textarea>
                   <div>
                     <input hidden ng-model="contact.date"/>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary" ng-click="add_contact(); refresh_contacts()">Submit</button>
+                <input ng-disabled="CommentForm.$invalid" type="submit" class="btn btn-primary" ng-click="add_contact(); refresh_contacts()" value"Submit"/>
               </form>
             </div>
             </div>
@@ -172,9 +172,7 @@ However, many of our staff are ex-credit officers who have worked for a major le
                 <h6 class="mt-0">at {{contact.date | date:'dd-MM-yyyy HH:mm'}}
                 </h6>
               </h5>
-
               {{contact.number}}
-
             </div>
           </div>
         </div>
@@ -215,7 +213,8 @@ However, many of our staff are ex-credit officers who have worked for a major le
         <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="hide_message()">&times;</a>
         {{message}}
       </div>
-            <table class="table table-hover">
+        <form name="ContactForm">
+            <table class="table table-hover" >
               <thead>
                   <tr>
                     <th>Name</th>
@@ -227,18 +226,18 @@ However, many of our staff are ex-credit officers who have worked for a major le
               <tbody>
                 <tr>
                   <td>
-                    <input class="form-control" placeholder="Name" ng-model="contact.name"/>
+                    <input type="text" class="form-control" placeholder="Name" ng-model="contact.name" required/>
                   </td>
                   <td>
-                    <input class="form-control" placeholder="Address" ng-model="contact.email" />
+                    <input type="text" class="form-control" placeholder="Address" ng-model="contact.email"/>
                   </td>
                   <td>
-                    <input class="form-control" placeholder="Phone number" ng-model="contact.number" />
+                    <input taype="text" class="form-control" placeholder="Phone number" ng-model="contact.number" />
                   </td>
                   <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary" ng-click="add_bank_contact()">Add</button>
-                        <button class="btn btn-success" ng-click="update_contact()">Update</button>
+                        <button ng-disabled="ContactForm.$invalid" class="btn btn-primary" ng-click="add_bank_contact()">Add</button>
+                        <button ng-disabled="ContactForm.$invalid" class="btn btn-success" ng-click="update_contact()">Update</button>
                       </div>
                   </td>
                 </tr>
@@ -255,6 +254,7 @@ However, many of our staff are ex-credit officers who have worked for a major le
                 </tr>
               </tbody>
             </table>
+          </form>
           </div>
           <hr>
           <!-- user list -->
@@ -266,6 +266,7 @@ However, many of our staff are ex-credit officers who have worked for a major le
         <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="hide_message()">&times;</a>
         {{message}}
       </div>
+        <form name="UsersForm">
             <table class="table table-hover">
               <thead>
                   <tr>
@@ -278,18 +279,18 @@ However, many of our staff are ex-credit officers who have worked for a major le
               <tbody>
                 <tr>
                   <td>
-                    <input class="form-control" placeholder="Name" ng-model="contact.name" />
+                    <input class="form-control" placeholder="Name" ng-model="contact.name"required/>
                   </td>
                   <td>
-                    <input type="password" class="form-control" placeholder="Password" ng-model="contact.email" />
+                    <input type="password" class="form-control" placeholder="Password" ng-model="contact.email" required/>
                   </td>
                   <td>
                     <input type="checkbox" class="form-control" placeholder="Phone number" ng-model="contact.number"/>
                   </td>
                   <td>
                     <div class="btn-group">
-                    <button class="btn btn-primary" ng-click="add_contact()">Add</button>
-                    <button class="btn btn-success" ng-click="update_contact()">Update</button>
+                    <button ng-disabled="UsersForm.$invalid" class="btn btn-primary" ng-click="add_contact()">Add</button>
+                    <button ng-disabled="UsersForm.$invalid" class="btn btn-success" ng-click="update_contact()">Update</button>
                       </div>
                   </td>
                 </tr>
@@ -306,6 +307,7 @@ However, many of our staff are ex-credit officers who have worked for a major le
                 </tr>
               </tbody>
             </table>
+          </form>
           </div>
         </div>
 
@@ -336,7 +338,7 @@ However, many of our staff are ex-credit officers who have worked for a major le
                 <table class="table table-hover">
                   <thead>
                       <tr>
-                        <th>Name</th>
+                        <th>--Select the Bank--</th>
                         <th>Action</th>
                       </tr>
                   </thead>
@@ -344,15 +346,18 @@ However, many of our staff are ex-credit officers who have worked for a major le
                     <tr >
 
                       <td>
-                          <select class="form-control" id="sel1" ng-model="contact.name">
-                          <option ng-repeat="contact in contact_list" >{{contact.name}}</option>
+                        <form name"RatingsForm">
+                          <select class="form-control" id="sel1" ng-model="contact.name" required>
+                            <option disabled>--Select the Bank--</option>
+                          <option ng-repeat="contact in contact_list" value="{{contact.name}}">{{contact.name}}</option>
                         </select>
+                      </form>
                       </td>
 
                     </tr>
                       <td>
                               <div class="stars" >
-                                <form action="" >
+                                <form name=StarsForm action="" >
                                   <input class="star star-5" ng-model="contact.number"  id="star-5" type="radio" name="star" ng-value=5 />
                                   <label class="star star-5" for="star-5"></label>
                                   <input class="star star-4" ng-model="contact.number" id="star-4" type="radio" name="star" ng-value=4 />
@@ -365,11 +370,10 @@ However, many of our staff are ex-credit officers who have worked for a major le
                                   <label class="star star-1" for="star-1"></label>
                                 </form>
                               </div>
-
                       </td>
 
                       <td>
-                        <button class="btn" ng-click="add_contact()">Rate</button>
+                        <button ng-disabled="RatingsForm.$pristine" class="btn" ng-click="add_contact()">Rate</button>
                       </td>
                   </tbody>
                 </table>
